@@ -36,11 +36,14 @@ class EchoHandler(BaseHTTPRequestHandler):
         # request_path = request_path[1]
 
         # request_path = [self.path[1] for self.path[1] in self.path.split('/')]
-        request_path = self.path.split('/')[1]
 
+        # request_path = self.path.split('/')[1]
+
+
+        # pass doesn't seem to work to stop debug at pass line
         pass
 
-        self.wfile.write(request_path.encode())
+        self.wfile.write(self.path[1:].encode())
 
 if __name__ == '__main__':
     server_address = ('', 8000)  # Serve on all addresses, port 8000.
