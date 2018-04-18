@@ -25,3 +25,6 @@ if __name__ == '__main__':
     httpd.serve_forever()
 
 # Testing pushing this project code edits to Python_Projects Git repo
+
+some_dict = {'one': 1, 'two': 2, 'three': 3}
+
