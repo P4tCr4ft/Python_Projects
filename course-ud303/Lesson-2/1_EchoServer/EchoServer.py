@@ -41,7 +41,7 @@ class EchoHandler(BaseHTTPRequestHandler):
 
 
         # pass doesn't seem to work to stop debug at pass line
-        pass
+        p2ass
 
         self.wfile.write(self.path[1:].encode())
 
