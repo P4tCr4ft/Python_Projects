@@ -18,6 +18,7 @@ sec_hand_az = 0.0
 min_hand_az = 0.0
 hour_hand_az = 0.0
 solutions = {}
+rough_solutions = {}
 map_azimuth = {}
 
 for x in range(43200):
@@ -31,34 +32,42 @@ for x in range(43200):
     if min_hand_az == 360.0:
         min_hand_az = 0.0
 
-    hour_hand_az += (0.1/12)
+    hour_hand_az += (0.1/12.0)
     map_azimuth[hour_hand_az] = 'hour_hand_az'
 
     azimuth_list = [sec_hand_az, min_hand_az, hour_hand_az]
     azimuth_list.sort()
-    # print('sorted azimuth list is {}'.format(azimuth_list))
+
     if (azimuth_list[0] + 120.0 == azimuth_list[1]) and (azimuth_list[1] + 120.0 == azimuth_list[2]):
-        #solutions[x] = azimuth_list will go here, just checking what it stores in dict
-        #need to reset solutions dict to empty, else with get massive
 
-    # print(map_azimuth)
-
-        solutions[x] = [(map_azimuth[azimuth_list[0]], azimuth_list[0]),
-                        (map_azimuth[azimuth_list[1]], azimuth_list[1]),
-                        (map_azimuth[azimuth_list[2]], azimuth_list[2])
+        solutions[str(x)] = [(map_azimuth.get(azimuth_list[0]), azimuth_list[0]),
+                        (map_azimuth.get(azimuth_list[1]), azimuth_list[1]),
+                        (map_azimuth.get(azimuth_list[2]), azimuth_list[2])
                         ]
 
-    # if (azimuth_list[0] + 120.0 == azimuth_list[1]) and (azimuth_list[1] + 120.0 == azimuth_list[2]):
+    # Below obtains a solution, if hands are equidistant within plus/minus 2 degrees
+    # See rough_solution
 
+    if ((azimuth_list[1] - 2.0) <= (azimuth_list[0] + 120.0) <= (azimuth_list[1] + 2.0)) and \
+        ((azimuth_list[2] - 2.0) <= (azimuth_list[1] + 120.0) <= (azimuth_list[2] + 2.0)):
 
+        rough_solutions[str(x)] = [(map_azimuth.get(azimuth_list[0]), azimuth_list[0]),
+                        (map_azimuth.get(azimuth_list[1]), azimuth_list[1]),
+                        (map_azimuth.get(azimuth_list[2]), azimuth_list[2])
+                        ]
 
-
-
-    # print(solutions)
     map_azimuth = {}
-    pass
-
-print(solutions)
 
 
+print('Exact solutions are {}'.format(solutions))
+
+for k, v in rough_solutions.items():
+    print('\nRough solutions are {}, {}'.format(k, v))
+
+print('\nThere are no solutions where all hands are exactly equidistant\n'\
+      'There is one solution where hands are equidistant within plus/minus 2 degrees of equidistance\n'\
+      'This occurs at iteration {}, which equates to a time of about {}:{}:{}'.format(list(rough_solutions.keys())[0],
+                                                            (round((list(rough_solutions.values())[0][0][1])/12)*12),
+                                                            round((list(rough_solutions.values())[0][1][1])/6),
+                                                            round((list(rough_solutions.values())[0][2][1])/6)))
 
