@@ -10,36 +10,52 @@ if __name__ == '__main__':
     row = ''
 
     with open('CSVData.csv', 'r') as f:
-        for r in csv.reader(f):
-            print('r out of csv is {}'.format(r))
-            for item in r:
-                row += item
 
-            p = re.compile(regex_dollar_val)
-            # p = re.compile('[-+]+\d+\.*\d*')
+        with open('NewCSV.csv', 'w') as f2:
 
-            m = p.search(row)
-            if m:
-                print('m is {}'.format(m.group()))
-            else:
-                print('m is empty, no results')
+            for r in csv.reader(f):
+                print('r out of csv is {}'.format(r))
+                for item in r:
+                    row += item
 
-            row = ''
+                p = re.compile(regex_dollar_val)
+                # p = re.compile('[-+]+\d+\.*\d*')
 
-            # r += m.group()
-            # r.append(m.group())
-            dollar_val = m.group()
+                m = p.search(row)
+                if m:
+                    print('m is {}'.format(m.group()))
+                else:
+                    print('m is empty, no results')
 
-            if dollar_val[0] == '-':
-                dollar_val = float(dollar_val[1:]) * -1
-            else:
-                dollar_val = float(dollar_val)
+                row = ''
 
-            balance = float(starting_balance) + dollar_val
+                # r += m.group()
+                # r.append(m.group())
+                dollar_val = m.group()
 
-            r.append(balance)
+                if dollar_val[0] == '-':
+                    dollar_val = float(dollar_val[1:]) * -1
+                else:
+                    dollar_val = float(dollar_val)
+
+                balance = float(starting_balance) + dollar_val
+
+                r.append(balance)
+
+                somestring = ''
+
+                somestring = [somestring + str(item) + '' for item in r]
+                print('somestring is ', somestring)
+
+                # f2.write([str(item) for item in r])
+                # print([str(item) for item in r])
+                # for item in r:
+                #     print('item is {}, {}'.format(item, type(item)))
 
 
-            print('new r is {}'.format(r))
+
+                print('new r is {}'.format(r))
+
+        f2.close()
 
     f.close()
