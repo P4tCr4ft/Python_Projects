@@ -1,49 +1,71 @@
 import csv
 import re
 
-# def parse_csv():
-#     # parse function
-#     pass
-
-
 if __name__ == '__main__':
 
+    # regex_dollar_val = '[-+]+\d+\.*\d*'
+    # regex_dollar_val = '[-+]+\d+\.*[\d\d]*'
+    regex_dollar_val = '[-+]+\d+\.*\d\d'#this one is correct
+    # regex_dollar_val = '[fobar]'# This will only match once from this set, eg, search string 'oo' will only match once on o in [fobar] and return result o
+    # regex_dollar_val = 'fobar'# This will only match an exact match, eg, search string 'fobar'
+    # regex_dollar_val = '[fobar]+'# This will match one or more times, eg, search string'oooo' will match one or more on o in [fobar] and return result oooo
+
+
+    balance = float(input('Enter starting balance: $') or '5000')
+    input_csv = input('Enter input CSV filename: ') or 'CSVData_July2018.csv'
+    output_csv = input_csv[:-4] + 'new' + '.csv'
+
     row = ''
-    text = 'Guido will be -+ out of the office from 12/15/2012 - 1/3/2013.'
 
-    with open('CSVData.csv', 'r') as f:
-        for r in csv.reader(f):
-            # print(r)
-            for item in r:
-                row += item
-            # print(row)
-            # p = re.compile('\d+')# works for first date number using match
-            # p = re.compile(r'[DRA]')
-            # p = re.compile('a[bcd]*b')# works as per python docs example (with match)
-            # p = re.compile(r'\d\d\d')# No doesn't work
+    with open(input_csv, 'r') as f:
 
-            # p = re.compile('\d+/\d+/\d+')# Yes this works with finditer
-            p = re.compile('[- +]+')# Yes this works with finditer and findall
-                                    # finds - and space and + individually
+        with open(output_csv, 'w') as f2:
 
-            p = re.compile('-\+')# this finds -+, so escapes the special character +
+            f2.write('Starting balance is ${}\n'.format(balance))
 
-            # m = p.match(text)# I think match starts from the start, may not be best option
+            for r in csv.reader(f):
+                print('r out of csv is {}'.format(r))
+                for item in r:
+                    row += item
 
-            # for m in p.finditer(text):# Yes this works
-            #     print(m.group())
+                p = re.compile(regex_dollar_val)
+                # p = re.compile('[-+]+\d+\.*\d*')
 
-            m = p.findall(text)# yes this works, not limited to matching from the beginning of string
+                # m = p.search(row)
+                m = p.search('oooo')
+                if m:
+                    print('m is {}'.format(m.group()))
+                else:
+                    print('m is empty, no dollar value results')
+                    row = ''
+                    continue
+
+                dollar_val = m.group()
 
 
-            # m = p.match(row)
-            # m = p.match('abcbd')# works as per python docs example
-            if m:
-                # print(m.group())
-                print(m)
-            else:
-                print('m is empty, nothing found')
-            row = ''
+
+
+                if dollar_val[0] == '-':
+                    dollar_val = float(dollar_val[1:]) * -1
+                else:
+                    dollar_val = float(dollar_val)
+
+                balance = balance + dollar_val
+
+                r.append(str(balance))
+                r.append('\n')
+
+                somestring = ''
+
+                somestring = ','.join(r)
+                print('somestring is ', somestring)
+
+                f2.write(somestring)
+
+                row = ''
+
+                print('new r is {}'.format(r))
+
+        f2.close()
 
     f.close()
-
