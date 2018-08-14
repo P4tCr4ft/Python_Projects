@@ -45,7 +45,7 @@ def write_upgraded_csv(dollar_val, balance, r, f2):
     # r.append(str(round((Decimal(balance)), 2)) + '\n')
 
     # somestring = ','.join(r)
-    somestring = r[:-2] + ' ' + str(round((Decimal(balance)), 2)) + '\n'
+    somestring = r[:-1] + ' ' + str(round((Decimal(balance)), 2)) + '\n'
 
     f2.write(somestring)
 
