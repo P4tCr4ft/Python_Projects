@@ -6,6 +6,7 @@ c = MaxSizeList('oops')
 d = MaxSizeList('7')
 print('Got to line 7')
 
+a.push('')
 a.push('hey')
 a.push('hi')
 a.push('lets')
