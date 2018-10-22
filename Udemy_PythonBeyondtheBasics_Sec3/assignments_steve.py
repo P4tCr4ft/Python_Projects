@@ -7,7 +7,7 @@ class MaxSizeList(object):
             self.list_size = list_size
             self.list = []
         except ValueError as e:
-            print('Size argument is wrong type: {}'.format(e.__str__()))
+            print('List size argument is wrong type: {}'.format(e.__str__()))
             # raise
         except Exception as e:
             print('Some other argument error: {}'.format(e.__str__()))
