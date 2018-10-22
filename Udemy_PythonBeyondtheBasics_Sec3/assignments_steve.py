@@ -12,8 +12,6 @@ class MaxSizeList(object):
         except Exception as e:
             print('Some other argument error: {}'.format(e.__str__()))
             # raise
-        # self.list_size = list_size
-        # self.list = []
 
 
     def push(self, string_item):
