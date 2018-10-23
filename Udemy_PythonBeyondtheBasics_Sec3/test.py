@@ -1,6 +1,5 @@
 from assignments_steve                  import MaxSizeList
 
-from calling_parent_constructor_super   import Dog
 
 a = MaxSizeList(3)
 b = MaxSizeList(1)
@@ -29,12 +28,5 @@ print('got to line 24')
 
 print(a.get_list())
 print(b.get_list())
-
-
-rover = Dog('Rover')
-
-print('The dogs name is {0} and the breed is {1}'.format(rover.name, rover.breed))
-rover.fetch('shoe')
-
 
 print('this is last line')
