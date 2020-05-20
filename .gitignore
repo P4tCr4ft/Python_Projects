@@ -1,4 +1,5 @@
-*/.idea
-Python-Beyond-The-Basics-Object-Oriented-Programming-Working-Files
-*/__pycache__
-*/*.pyc
+.idea
+__pycache__
+*.pyc
+.DS_Store
+
