@@ -1,18 +1,47 @@
-# This is a sample Python script.
+# Steve Triplett
+# July 2021
+# Simple FastAPI App
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+from typing import Optional
 
-# Test line to test push working
+import fastapi
+import uvicorn
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+api = fastapi.FastAPI()
 
 
-# Press the green button in the gutter to run the script.
+@api.get('/')
+def index():
+    body = "<html>" \
+            "<body style='padding: 10px;'>" \
+            "<h1>Welcome to the API</h1>" \
+            "<div>" \
+            "Try it: <a href='/api/calculate?x=7&y=11'>/api/calculate?x=7&y=11</a>" \
+            "</div>" \
+            "</body>" \
+            "</html>"
+
+    return fastapi.responses.HTMLResponse(content=body)
+
+@api.get('/api/calculate')
+def calculate(x: int, y: int, z: Optional[int] = None):
+    if z == 0:
+        return fastapi.responses.JSONResponse(
+            content={"error": "ERROR: Z cannot be zero."},
+            status_code=400)
+
+    value = x + y
+
+    if z is not None:
+        value /= z
+
+    return {
+        'x': x,
+        'y': y,
+        'z': z,
+        'value': value
+    }
+
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    uvicorn.run(api, port=8000, host="127.0.0.1")
