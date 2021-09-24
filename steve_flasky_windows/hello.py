@@ -34,7 +34,7 @@ def index():
 
 
 @app.route('/user/<name>')
-def user(name) :
+def user(name):
     return render_template('user.html', name=name)
 
 
@@ -61,3 +61,7 @@ So the new templates/base.html is the base for other templates such as templates
 templates/404.html and templates/500.html
 
 '''
+
+if __name__ == '__main__':
+    # app.run(debug=True)
+    app.run()
