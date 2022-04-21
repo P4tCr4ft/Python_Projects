@@ -76,9 +76,9 @@ def index():
 #     return render_template('index.html', form=form, name=session.get('name'), current_time=datetime.utcnow())
 
 
-# @app.route('/user/<name>')
-# def user(name):
-#     return render_template('user.html', name=name)
+@app.route('/user/<name>')
+def user(name):
+    return render_template('user.html', name=name)
 
 
 @app.errorhandler(404)
@@ -103,5 +103,5 @@ templates/404.html and templates/500.html
 '''
 
 if __name__ == '__main__':
-    # app.run(debug=True)
+    app.run(debug=True)
     app.run()
