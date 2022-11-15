@@ -1,0 +1,16 @@
+from pytest import mark
+
+
+@mark.entertainment
+class EntertainmentTests:
+    def test_entertainment_system_functions_as_expected(self):
+        assert True
+
+    def test_amplifier(self):
+        assert True
+
+    def test_bluetooth(self):
+        assert True
+
+    def test_speakers(self):
+        assert True
