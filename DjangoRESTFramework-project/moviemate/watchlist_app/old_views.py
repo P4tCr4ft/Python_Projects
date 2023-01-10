@@ -4,6 +4,7 @@
 
 # # Create your views here.
 # def movie_list(request):
+    # The following 5 lines is basically what a serializer does
 #   movies = Movie.objects.all()
 #   data = {
 #     'movies': list(movies.values())
