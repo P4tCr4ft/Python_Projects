@@ -1,0 +1,26 @@
+{
+    "stopTime": [
+        "1461342610"
+    ],
+    "startTime": [
+        "1461342600"
+    ],
+    "fields": [
+        "event.provider,event.dataset,firstPacket,lastPacket,source.ip,destination.ip,protocol,ipProtocol,source.bytes,destination.bytes,source.packets,destination.packets,network.packets,network.bytes,",
+        "event.provider",
+        "destination.ip",
+        "firstPacket",
+        "lastPacket",
+        "source.ip",
+        "protocol",
+        "ipProtocol",
+        "source.bytes",
+        "destination.bytes"
+    ],
+    "start": [
+        "0"
+    ],
+    "length": [
+        "10000"
+    ]
+}

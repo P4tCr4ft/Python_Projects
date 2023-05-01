@@ -1,0 +1,62 @@
+{
+    "_index": "arkime_sessions3-160422",
+    "_id": "160422-fDRvKL1_KZl480g64DPmSQ",
+    "_score": None,
+    "_source": {
+        "protocol": [
+            "tcp"
+        ],
+        "lastPacket": 1461342609849,
+        "firstPacket": 1461342609117,
+        "destination": {
+            "ip": "192.168.35.48"
+        },
+        "source": {
+            "ip": "172.16.71.11"
+        },
+        "ipProtocol": 6,
+        "event": {
+            "provider": "suricata",
+            "dataset": "alert"
+        },
+        "network": {
+            "bytes": 1433660,
+            "packets": 1037
+        }
+    },
+    "fields": {
+        "event.provider": [
+            "suricata"
+        ],
+        "protocol": [
+            "tcp"
+        ],
+        "firstPacket": [
+            "2016-04-22T16:30:09.117Z"
+        ],
+        "lastPacket": [
+            "2016-04-22T16:30:09.849Z"
+        ],
+        "network.packets": [
+            1037
+        ],
+        "source.ip": [
+            "172.16.71.11"
+        ],
+        "network.bytes": [
+            1433660
+        ],
+        "ipProtocol": [
+            6
+        ],
+        "destination.ip": [
+            "192.168.35.48"
+        ],
+        "event.dataset": [
+            "alert"
+        ]
+    },
+    "sort": [
+        1461342609117
+    ]
+}

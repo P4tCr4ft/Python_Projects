@@ -1,0 +1,41 @@
+{
+    "firstPacket": 1461342577715,
+    "ipProtocol": 6,
+    "node": "cma-arkime",
+    "protocol": [
+        "tcp"
+    ],
+    "lastPacket": 1461342602381,
+    "source": {
+        "as": {},
+        "geo": {},
+        "packets": 5,
+        "port": 443,
+        "ip": "54.192.139.19",
+        "bytes": 318
+    },
+    "destination": {
+        "as": {},
+        "geo": {},
+        "port": 51087,
+        "ip": "10.160.77.15",
+        "packets": 5,
+        "bytes": 345
+    },
+    "client": {},
+    "server": {},
+    "network": {
+        "packets": 10,
+        "bytes": 663
+    },
+    "event": {
+        "provider": [
+            "arkime"
+        ],
+        "dataset": [
+            "session"
+        ]
+    },
+    "id": "3@160422-fQheN8u7mkBNXbW2wD9nBn09",
+    "fileId": []
+}

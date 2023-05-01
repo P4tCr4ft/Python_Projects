@@ -1,0 +1,79 @@
+{
+    "from": 0,
+    "size": 10000,
+    "timeout": "300s",
+    "query": {
+        "bool": {
+            "filter": [
+                {
+                    "range": {
+                        "lastPacket": {
+                            "gte": 1461342600000,
+                            "lte": 1461342610000
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "_source": [
+        "event.provider",
+        "event.dataset",
+        "firstPacket",
+        "lastPacket",
+        "source.ip",
+        "destination.ip",
+        "protocol",
+        "ipProtocol",
+        "source.bytes",
+        "destination.bytes",
+        "source.packets",
+        "destination.packets",
+        "network.packets",
+        "network.bytes",
+        "",
+        "event.provider",
+        "destination.ip",
+        "firstPacket",
+        "lastPacket",
+        "source.ip",
+        "protocol",
+        "ipProtocol",
+        "source.bytes",
+        "destination.bytes"
+    ],
+    "sort": [
+        {
+            "firstPacket": {
+                "order": "asc",
+                "missing": "_last"
+            }
+        }
+    ],
+    "fields": [
+        "event.provider",
+        "event.dataset",
+        "firstPacket",
+        "lastPacket",
+        "source.ip",
+        "destination.ip",
+        "protocol",
+        "ipProtocol",
+        "source.bytes",
+        "destination.bytes",
+        "source.packets",
+        "destination.packets",
+        "network.packets",
+        "network.bytes",
+        "",
+        "event.provider",
+        "destination.ip",
+        "firstPacket",
+        "lastPacket",
+        "source.ip",
+        "protocol",
+        "ipProtocol",
+        "source.bytes",
+        "destination.bytes"
+    ]
+}

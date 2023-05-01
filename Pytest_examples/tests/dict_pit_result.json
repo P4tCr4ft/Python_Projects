@@ -1,0 +1,78 @@
+{
+    "_index": "arkime_sessions3-160422",
+    "_id": "160422-fQheN8u7mkBNXbW2wD9nBn09",
+    "_score": None,
+    "_source": {
+        "protocol": [
+            "tcp"
+        ],
+        "lastPacket": 1461342602381,
+        "firstPacket": 1461342577715,
+        "destination": {
+            "bytes": 345,
+            "ip": "10.160.77.15",
+            "packets": 5
+        },
+        "source": {
+            "bytes": 318,
+            "ip": "54.192.139.19",
+            "packets": 5
+        },
+        "ipProtocol": 6,
+        "event": {
+            "provider": "arkime",
+            "dataset": "session"
+        },
+        "network": {
+            "bytes": 663,
+            "packets": 10
+        }
+    },
+    "fields": {
+        "firstPacket": [
+            "2016-04-22T16:29:37.715Z"
+        ],
+        "source.packets": [
+            5
+        ],
+        "network.packets": [
+            10
+        ],
+        "ipProtocol": [
+            6
+        ],
+        "destination.ip": [
+            "10.160.77.15"
+        ],
+        "destination.packets": [
+            5
+        ],
+        "event.provider": [
+            "arkime"
+        ],
+        "protocol": [
+            "tcp"
+        ],
+        "lastPacket": [
+            "2016-04-22T16:30:02.381Z"
+        ],
+        "source.ip": [
+            "54.192.139.19"
+        ],
+        "network.bytes": [
+            663
+        ],
+        "destination.bytes": [
+            345
+        ],
+        "event.dataset": [
+            "session"
+        ],
+        "source.bytes": [
+            318
+        ]
+    },
+    "sort": [
+        1461342577715
+    ]
+}
