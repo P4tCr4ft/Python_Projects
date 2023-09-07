@@ -1,0 +1,11 @@
+fastapi
+flake8
+Flask
+gevent
+greenlet
+python-dotenv
+requests
+starlette
+urllib3
+uvicorn
+websockets
