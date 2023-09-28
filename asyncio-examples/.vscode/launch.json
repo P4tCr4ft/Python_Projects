@@ -11,6 +11,34 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true
-        }
+        },
+        {
+            "name": "Start 3_ Uvicorn App",
+            "type": "python",
+            "request": "launch",
+            "module": "uvicorn",
+            "cwd": "${workspaceFolder}/3_asgi_basic",
+            "args": [
+                "basic_eventloop:app",
+                "--port",
+                "9000"
+            ],
+            "justMyCode": true,
+            // "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "name": "Start 4_ Uvicorn App",
+            "type": "python",
+            "request": "launch",
+            "module": "uvicorn",
+            "cwd": "${workspaceFolder}/4_asgi_chunked_streams",
+            "args": [
+                "stream_eventloop:app",
+                "--port",
+                "9000"
+            ],
+            "justMyCode": true,
+            // "envFile": "${workspaceFolder}/.env"
+        },
     ]
 }

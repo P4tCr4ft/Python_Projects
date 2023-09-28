@@ -8,11 +8,9 @@ async def say_after(delay, msg):
 
 
 async def run():
-    task1 = asyncio.create_task(
-        say_after(2, 'hello'))
+    task1 = asyncio.create_task(say_after(2, "hello"))
 
-    task2 = asyncio.create_task(
-        say_after(2, 'world'))
+    task2 = asyncio.create_task(say_after(2, "world"))
 
     print(f"started at {time.strftime('%X')}")
 
@@ -25,5 +23,6 @@ async def run():
     print(f"finished at {time.strftime('%X')}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     asyncio.run(run(), debug=True)
+    # asyncio.run(run())
